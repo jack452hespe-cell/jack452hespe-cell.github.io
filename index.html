@@ -143,14 +143,19 @@
         <div class="project-card composites motorsport p-6 rounded-2xl bg-slate-800/60 light:bg-white border border-slate-700/60 light:border-slate-200 flex flex-col justify-between hover:border-sky-500/50 transition-all shadow-sm">
           <div>
             <!-- Project Title Image Preview -->
-            <div class="mb-4 rounded-xl overflow-hidden border border-slate-700/60 light:border-slate-200 bg-slate-900/60 h-36 flex items-center justify-center text-center">
-              <img src="images/column_cad.png" alt="Steering Column CAD" class="w-full h-full object-cover hidden" onerror="this.classList.add('hidden')">
+            <div class="mb-4 rounded-xl overflow-hidden border border-slate-700/60 light:border-slate-200 bg-slate-900/60 h-36 flex items-center justify-center text-center relative">
+              <img src="images/column_cad.png" 
+                 alt="Steering Column CAD" 
+                 class="w-full h-full object-cover" 
+                 onload="this.nextElementSibling.classList.add('hidden')" 
+                 onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
+  
               <div class="text-slate-400 text-xs px-4">
                 <i class="fa-solid fa-image text-xl mb-1 text-sky-400 block"></i>
                 <span class="text-[11px] text-slate-400">Carbon Steering Column Preview</span>
               </div>
             </div>
-
+            
             <div class="flex justify-between items-start mb-3">
               <span class="px-2.5 py-1 rounded bg-sky-500/10 text-sky-400 text-xs font-mono font-bold">58.6% Mass Reduction</span>
               <i class="fa-solid fa-layer-group text-slate-400"></i>
