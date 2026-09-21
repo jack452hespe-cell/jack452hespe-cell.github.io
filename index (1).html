@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jack Hespe | Mechanical Engineering Portfolio</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cyan: '#38bdf8',
+              red: '#ef4444',
+              navy: '#0f172a',
+              card: '#1e293b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #38bdf8;
+    }
+    .light ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    .light ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+    }
+    /* Hide scrollbar for gallery slider */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    /* Gallery carousel */
+    .gallery-dot { width: 8px; height: 8px; border-radius: 9999px; background: #475569; transition: all .2s; }
+    .gallery-dot:hover { background: #94a3b8; }
+    .gallery-dot.active { width: 22px; background: #38bdf8; }
+    .light .gallery-dot { background: #cbd5e1; }
+    .light .gallery-dot.active { background: #0ea5e9; }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 light:bg-slate-50 light:text-slate-800 transition-colors duration-300 font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- THEME TOGGLE FLOATING BUTTON -->
+  <div class="fixed top-4 right-4 z-50">
+    <button id="themeToggle" onclick="toggleTheme()" class="p-2.5 rounded-xl bg-slate-800 light:bg-white border border-slate-700 light:border-slate-200 text-slate-300 light:text-slate-700 hover:text-sky-400 shadow-lg transition-colors" title="Toggle Light/Dark Theme">
+      <i id="themeIcon" class="fa-solid fa-sun"></i>
+    </button>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="relative py-20 md:py-28 overflow-hidden bg-gradient-to-b from-slate-900 via-slate-800/50 to-slate-900 light:from-slate-100 light:via-white light:to-slate-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-mono uppercase tracking-wider mb-6">
+        Mechanical Engineering Student • University of Sheffield
+      </div>
+      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white light:text-slate-900 mb-6">
+        Jack Hespe
+      </h1>
+      <p class="text-lg sm:text-xl text-slate-300 light:text-slate-600 max-w-3xl mx-auto leading-relaxed">
+        Mechanical engineering portfolio focusing on composite structural optimization, FEA load validation, custom precision tooling, and Python-based data acquisition systems.
+      </p>
+    </div>
+  </section>
+
+  <!-- ABOUT ME SECTION -->
+  <section id="about" class="py-16 border-t border-slate-800 light:border-slate-200 bg-slate-900/50 light:bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-bold text-white light:text-slate-900 mb-8 flex items-center gap-3">
+        <i class="fa-solid fa-user-gear text-sky-400"></i> About Me
+      </h2>
+      
+      <div class="grid md:grid-cols-2 gap-8 items-start">
+        <div class="space-y-4 text-slate-300 light:text-slate-600 leading-relaxed">
+          <p>
+            I am a Mechanical Engineering student at the University of Sheffield with practical experience spanning Formula Student chassis design, composite laminate structures, finite element stress analysis, and industrial test rig automation.
+          </p>
+          <p>
+            My methodology emphasizes first-principles analytical modeling backed by finite element verification and hands-on manufacturing—from 3-part epoxy composite molds to laser-cut assembly jigs with sub-millimeter tolerances.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-4">
+          <div class="p-4 rounded-xl bg-slate-800/80 light:bg-slate-100 border border-slate-700/60 light:border-slate-200 flex items-start gap-4">
+            <div class="p-3 rounded-lg bg-sky-500/10 text-sky-400 text-xl shrink-0">
+              <i class="fa-solid fa-calculator"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-white light:text-slate-900 mb-1">First-Principles Engineering</h3>
+              <p class="text-xs text-slate-400 light:text-slate-500">Rigorous load path evaluation, mathematical stress calculations, and material behavior derivation.</p>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-800/80 light:bg-slate-100 border border-slate-700/60 light:border-slate-200 flex items-start gap-4">
+            <div class="p-3 rounded-lg bg-sky-500/10 text-sky-400 text-xl shrink-0">
+              <i class="fa-solid fa-cube"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-white light:text-slate-900 mb-1">CAD & FEA Structural Validation</h3>
+              <p class="text-xs text-slate-400 light:text-slate-500">Complex surface modeling in Siemens NX, mesh convergence, and load-case optimization in Nastran.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS SHOWCASE SECTION -->
+  <section id="projects" class="py-16 border-t border-slate-800 light:border-slate-200 bg-slate-900 light:bg-slate-50 flex-grow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white light:text-slate-900 flex items-center gap-3">
+            <i class="fa-solid fa-cubes text-sky-400"></i> Engineering Projects
+          </h2>
+          <p class="text-slate-400 light:text-slate-500 text-sm mt-1">
+            Detailed case studies from Formula Student development, internship software design, and electromechanical projects.
+          </p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="flex flex-wrap gap-2" id="filterContainer">
+          <button onclick="filterProjects('all')" class="filter-btn active px-3 py-1.5 rounded-lg text-xs font-semibold bg-sky-500 text-slate-950 transition-all">All</button>
+          <button onclick="filterProjects('motorsport')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 light:bg-slate-200 text-slate-300 light:text-slate-700 hover:text-white transition-all">Motorsport</button>
+          <button onclick="filterProjects('composites')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 light:bg-slate-200 text-slate-300 light:text-slate-700 hover:text-white transition-all">Composites & FEA</button>
+          <button onclick="filterProjects('software')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 light:bg-slate-200 text-slate-300 light:text-slate-700 hover:text-white transition-all">Software & Data</button>
+          <button onclick="filterProjects('tooling')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 light:bg-slate-200 text-slate-300 light:text-slate-700 hover:text-white transition-all">Tooling & Repair</button>
+        </div>
+      </div>
+
+      <!-- Project Cards Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projectsGrid">
+
+        <!-- PROJECT 1: Steering Column Mount -->
+        <div class="project-card composites motorsport p-6 rounded-2xl bg-slate-800/60 light:bg-white border border-slate-700/60 light:border-slate-200 flex flex-col justify-between hover:border-sky-500/50 transition-all shadow-sm">
+          <div>
+            <!-- Project Title Image Preview -->
+            <div class="mb-4 rounded-xl overflow-hidden border border-slate-700/60 light:border-slate-200 bg-slate-900/60 h-36 flex items-center justify-center text-center relative">
+              <img src="images/column_debulk.jpg"
+                 alt="Steering Column CAD" 
+                 class="w-full h-full object-cover" 
+                 onload="this.nextElementSibling.classList.add('hidden')" 
+                 onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
+  
+              <div class="text-slate-400 text-xs px-4">
+                <i class="fa-solid fa-image text-xl mb-1 text-sky-400 block"></i>
+                <span class="text-[11px] text-slate-400">Steering Column Preview</span>
+              </div>
+            </div>
+            
+            <div class="flex justify-between items-start mb-3">
+              <span class="px-2.5 py-1 rounded bg-sky-500/10 text-sky-400 text-xs font-mono font-bold">58.6% Mass Reduction</span>
+              <i class="fa-solid fa-layer-group text-slate-400"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white light:text-slate-900 mb-2">Carbon-Composite Steering Column Mount</h3>
+            <p class="text-xs text-slate-300 light:text-slate-600 mb-4 line-clamp-3">
+              Redesigned the steering column mount in Siemens NX using a carbon fibre & Rohacell sandwich structure to maximize stiffness-to-weight ratio.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-6">
+              <span class="px-2 py-0.5 rounded bg-slate-700/60 light:bg-slate-100 text-[11px] text-slate-300 light:text-slate-700">Siemens NX</span>
+              <span class="px-2 py-0.5 rounded bg-slate-700/60 light:bg-slate-100 text-[11px] text-slate-300 light:text-slate-700">Rohacell Sandwich</span>
+              <span class="px-2 py-0.5 rounded bg-slate-700/60 light:bg-slate-100 text-[11px] text-slate-300 light:text-slate-700">Penta Patterns GD&T</span>
+            </div>
+          </div>
+          <button onclick="openModal('modal1')" class="w-full py-2.5 rounded-xl bg-slate-700/50 light:bg-slate-100 hover:bg-sky-500 hover:text-slate-950 light:hover:bg-sky-500 text-xs font-semibold transition-all flex items-center justify-center gap-2">
+            View Project Details <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </button>
+        </div>
+
+        <!-- PROJECT 2: FS Rear Suspension -->
+        <div class="project-card motorsport composites p-6 rounded-2xl bg-slate-800/60 light:bg-white border border-slate-700/60 light:border-slate-200 flex flex-col justify-between hover:border-sky-500/50 transition-all shadow-sm">
+          <div>
+            <!-- Project Title Image Preview -->
+            <div class="mb-4 rounded-xl overflow-hidden border border-slate-700/60 light:border-slate-200 bg-slate-900/60 h-36 flex items-center justify-center text-center relative">
+              <img src="images/wb_fea_setup.png"
+                 alt="Rear Suspension FEA" 
+                 class="w-full h-full object-cover" 
+                 onload="this.nextElementSibling.classList.add('hidden')" 
+                 onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
+  
+              <div class="text-slate-400 text-xs px-4">
+                <i class="fa-solid fa-image text-xl mb-1 text-sky-400 block"></i>
+                <span class="text-[11px] text-slate-400">Rear Suspension FEA Preview</span>
+              </div>
+            </div>
+            
+            <div class="flex justify-between items-start mb-3">
+              <span class="px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 text-xs font-mono font-bold">Safety Factor 2.6</span>
+              <i class="fa-solid fa-car text-slate-400"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white light:text-slate-900 mb-2">Formula Student EV Rear Suspension</h3>
+            <p class="text-xs text-slate-300 light:text-slate-600 mb-4 line-clamp-3">
+              Redesigned suspension to handle increased loads from electrification using T45 steel tubing and E45 welded inserts, validated in Siemens Nastran.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-6">
+              <span class="px-2 py-0.5 rounded bg-slate-700/60 light:bg-slate-100 text-[11px] text-slate-300 light:text-slate-700">T45/E45 Steel</span>
+              <span class="px-2 py-0.5 rounded bg-slate-700/60 light:bg-slate-100 text-[11px] text-slate-300 light:text-slate-700">NX Nastran</span>
+              <span class="px-2 py-0.5 rounded bg-slate-700/60 light:bg-slate-100 text-[11px] text-slate-300 light:text-slate-700">Manufacturing Constraints</span>
+            </div>
+          </div>
+          <button onclick="openModal('modal2')" class="w-full py-2.5 rounded-xl bg-slate-700/50 light:bg-slate-100 hover:bg-sky-500 hover:text-slate-950 light:hover:bg-sky-500 text-xs font-semibold transition-all flex items-center justify-center gap-2">
+            View Project Details <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </button>
+        </div>
+
+        <!-- PROJECT 3: Laser-Cut Steel Wishbone Jig -->
+        <div class="project-card motorsport tooling p-6 rounded-2xl bg-slate-800/60 light:bg-white border border-slate-700/60 light:border-slate-200 flex flex-col justify-between hover:border-sky-500/50 transition-all shadow-sm">
+          <div>
+            <!-- Project Title Image Preview -->
+            <div class="mb-4 rounded-xl overflow-hidden border border-slate-700/60 light:border-slate-200 bg-slate-900/60 h-36 flex items-center justify-center text-center relative">
+              <img src="images/crusty_cad.png"
+                 alt="Wishbone Jig CAD" 
+                 class="w-full h-full object-cover" 
+                 onload="this.nextElementSibling.classList.add('hidden')" 
+                 onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
+  
+              <div class="text-slate-400 text-xs px-4">
+                <i class="fa-solid fa-image text-xl mb-1 text-sky-400 block"></i>
+                <span class="text-[11px] text-slate-400">Wishbone Jig CAD Preview</span>
+              </div>
+            </div>
+            
+            <div class="flex justify-between items-start mb-3">
+              <span class="px-2.5 py-1 rounded bg-amber-500/10 text-amber-400 text-xs font-mono font-bold">20µm Laser Precision</span>
+              <i class="fa-solid fa-draw-polygon text-slate-400"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white light:text-slate-900 mb-2">Laser-Cut Steel Wishbone Jig</h3>
+            <p class="text-xs text-slate-300 light:text-slate-600 mb-4 line-clamp-3">
+              Partnered with Metlase to design slot-rivet interlocking steel welding jigs in Siemens NX, replacing previous MDF fixtures.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-6">
+              <span class="px-2 py-0.5 rounded bg-slate-700/60 light:bg-slate-100 text-[11px] text-slate-300 light:text-slate-700">Siemens NX</span>
+              <span class="px-2 py-0.5 rounded bg-slate-700/60 light:bg-slate-100 text-[11px] text-slate-300 light:text-slate-700">Metlase Slot-Rivet</span>
+              <span class="px-2 py-0.5 rounded bg-slate-700/60 light:bg-slate-100 text-[11px] text-slate-300 light:text-slate-700">DXF Export</span>
+            </div>
+          </div>
+          <button onclick="openModal('modal3')" class="w-full py-2.5 rounded-xl bg-slate-700/50 light:bg-slate-100 hover:bg-sky-500 hover:text-slate-950 light:hover:bg-sky-500 text-xs font-semibold transition-all flex items-center justify-center gap-2">
+            View Project Details <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </button>
+        </div>
+
+        <!-- PROJECT 4: Python Modbus HMI -->
+        <div class="project-card software p-6 rounded-2xl bg-slate-800/60 light:bg-white border border-slate-700/60 light:border-slate-200 flex flex-col justify-between hover:border-sky-500/50 transition-all shadow-sm">
+          <div>
+            <!-- Project Title Image Preview -->
+            <div class="mb-4 rounded-xl overflow-hidden border border-slate-700/60 light:border-slate-200 bg-slate-900/60 h-36 flex items-center justify-center text-center relative">
+              <img src="images/live_reading.png"
+                 alt="Modbus Python HMI" 
+                 class="w-full h-full object-cover" 
+                 onload="this.nextElementSibling.classList.add('hidden')" 
+                 onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
+  
+              <div class="text-slate-400 text-xs px-4">
+                <i class="fa-solid fa-image text-xl mb-1 text-sky-400 block"></i>
+                <span class="text-[11px] text-slate-400">Modbus HMI Preview</span>
+              </div>
+            </div>
+            
+            <div class="flex justify-between items-start mb-3">
+              <span class="px-2.5 py-1 rounded bg-purple-500/10 text-purple-400 text-xs font-mono font-bold">Modbus RTU & TCP</span>
+              <i class="fa-solid fa-desktop text-slate-400"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white light:text-slate-900 mb-2">Modbus Python HMI & Sensor Telemetry</h3>
+            <p class="text-xs text-slate-300 light:text-slate-600 mb-4 line-clamp-3">
+              Developed custom Python data acquisition HMI to convert 4-20mA & 0-10V sensor signals into real-time telemetry graphs and CSV logs.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-6">
+              <span class="px-2 py-0.5 rounded bg-slate-700/60 light:bg-slate-100 text-[11px] text-slate-300 light:text-slate-700">Python</span>
+              <span class="px-2 py-0.5 rounded bg-slate-700/60 light:bg-slate-100 text-[11px] text-slate-300 light:text-slate-700">Async Loops</span>
+              <span class="px-2 py-0.5 rounded bg-slate-700/60 light:bg-slate-100 text-[11px] text-slate-300 light:text-slate-700">Live Graphing</span>
+            </div>
+          </div>
+          <button onclick="openModal('modal4')" class="w-full py-2.5 rounded-xl bg-slate-700/50 light:bg-slate-100 hover:bg-sky-500 hover:text-slate-950 light:hover:bg-sky-500 text-xs font-semibold transition-all flex items-center justify-center gap-2">
+            View Project Details <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </button>
+        </div>
+
+        <!-- PROJECT 5: 1970's Planetary Mixer -->
+        <div class="project-card tooling p-6 rounded-2xl bg-slate-800/60 light:bg-white border border-slate-700/60 light:border-slate-200 flex flex-col justify-between hover:border-sky-500/50 transition-all shadow-sm">
+          <div>
+            <!-- Project Title Image Preview -->
+            <div class="mb-4 rounded-xl overflow-hidden border border-slate-700/60 light:border-slate-200 bg-slate-900/60 h-36 flex items-center justify-center text-center relative">
+              <img src="images/mixer_disassembled.jpg"
+                 alt="Planetary Mixer Disassembled" 
+                 class="w-full h-full object-cover" 
+                 onload="this.nextElementSibling.classList.add('hidden')" 
+                 onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
+  
+              <div class="text-slate-400 text-xs px-4">
+                <i class="fa-solid fa-image text-xl mb-1 text-sky-400 block"></i>
+                <span class="text-[11px] text-slate-400">Planetary Mixer Preview</span>
+              </div>
+            </div>
+            
+            <div class="flex justify-between items-start mb-3">
+              <span class="px-2.5 py-1 rounded bg-rose-500/10 text-rose-400 text-xs font-mono font-bold">Reverse Engineering</span>
+              <i class="fa-solid fa-gears text-slate-400"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white light:text-slate-900 mb-2">1970's Planetary Mixer Restoration</h3>
+            <p class="text-xs text-slate-300 light:text-slate-600 mb-4 line-clamp-3">
+              Complete mechanical teardown and restoration of a vintage planetary mixer, diagnosing internal failure and rebuilding.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-6">
+              <span class="px-2 py-0.5 rounded bg-slate-700/60 light:bg-slate-100 text-[11px] text-slate-300 light:text-slate-700">Mechanical Diagnosis</span>
+              <span class="px-2 py-0.5 rounded bg-slate-700/60 light:bg-slate-100 text-[11px] text-slate-300 light:text-slate-700">Gearbox Service</span>
+              <span class="px-2 py-0.5 rounded bg-slate-700/60 light:bg-slate-100 text-[11px] text-slate-300 light:text-slate-700">Oil Seal Swap</span>
+            </div>
+          </div>
+          <button onclick="openModal('modal5')" class="w-full py-2.5 rounded-xl bg-slate-700/50 light:bg-slate-100 hover:bg-sky-500 hover:text-slate-950 light:hover:bg-sky-500 text-xs font-semibold transition-all flex items-center justify-center gap-2">
+            View Project Details <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </button>
+        </div>
+
+        <!-- PROJECT 6: University Gearbox -->
+        <div class="project-card composites tooling p-6 rounded-2xl bg-slate-800/60 light:bg-white border border-slate-700/60 light:border-slate-200 flex flex-col justify-between hover:border-sky-500/50 transition-all shadow-sm">
+          <div>
+            <!-- Project Title Image Preview -->
+            <div class="mb-4 rounded-xl overflow-hidden border border-slate-700/60 light:border-slate-200 bg-slate-900/60 h-36 flex items-center justify-center text-center relative">
+              <img src="images/spline_fea.png"
+                 alt="Gear Spline FEA" 
+                 class="w-full h-full object-cover" 
+                 onload="this.nextElementSibling.classList.add('hidden')" 
+                 onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
+  
+              <div class="text-slate-400 text-xs px-4">
+                <i class="fa-solid fa-image text-xl mb-1 text-sky-400 block"></i>
+                <span class="text-[11px] text-slate-400">Gearbox Spline FEA Preview</span>
+              </div>
+            </div>
+            
+            <div class="flex justify-between items-start mb-3">
+              <span class="px-2.5 py-1 rounded bg-cyan-500/10 text-cyan-400 text-xs font-mono font-bold">Failure Mode Analysis</span>
+              <i class="fa-solid fa-dharmachakra text-slate-400"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white light:text-slate-900 mb-2">2-Stage e-Bike Gearbox & FEA Validation</h3>
+            <p class="text-xs text-slate-300 light:text-slate-600 mb-4 line-clamp-3">
+              Designed acrylic gearbox transferring motor power to bicycle wheel, performing Shimadzu material testing and Fusion 360 FEA.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-6">
+              <span class="px-2 py-0.5 rounded bg-slate-700/60 light:bg-slate-100 text-[11px] text-slate-300 light:text-slate-700">Shimadzu Testing</span>
+              <span class="px-2 py-0.5 rounded bg-slate-700/60 light:bg-slate-100 text-[11px] text-slate-300 light:text-slate-700">Fusion 360 FEA</span>
+              <span class="px-2 py-0.5 rounded bg-slate-700/60 light:bg-slate-100 text-[11px] text-slate-300 light:text-slate-700">Gear Theory</span>
+            </div>
+          </div>
+          <button onclick="openModal('modal6')" class="w-full py-2.5 rounded-xl bg-slate-700/50 light:bg-slate-100 hover:bg-sky-500 hover:text-slate-950 light:hover:bg-sky-500 text-xs font-semibold transition-all flex items-center justify-center gap-2">
+            View Project Details <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="mt-auto py-8 border-t border-slate-800 light:border-slate-200 bg-slate-950 light:bg-slate-100 text-center text-xs text-slate-500">
+    <div class="max-w-5xl mx-auto px-4">
+      <p>© 2026 Jack Hespe • Mechanical Engineering Portfolio</p>
+    </div>
+  </footer>
+
+
+  <!-- EXPANDED MODALS SECTION WITH MULTI-MEDIA SCROLLABLE CAROUSELS -->
+
+  <!-- Modal 1: Carbon-Composite Steering Column Mount -->
+  <div id="modal1" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm">
+    <div class="bg-slate-800 light:bg-white border border-slate-700 light:border-slate-200 max-w-3xl w-full rounded-2xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto relative shadow-2xl">
+      <button onclick="closeModal('modal1')" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg z-20">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <span class="px-2.5 py-1 rounded bg-sky-500/10 text-sky-400 text-xs font-mono font-bold">58.6% Mass Reduction</span>
+      <h3 class="text-2xl font-bold text-white light:text-slate-900 mt-2 mb-4">Carbon-Composite Steering Column Mount</h3>
+
+      <!-- Multi-Media Carousel Container -->
+      <div class="relative group mb-6">
+        <div id="gallery-modal1" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar rounded-xl border border-slate-700 light:border-slate-200 bg-slate-900/80 h-64 sm:h-80">
+          
+          <!-- Slide 1: Image -->
+          <div class="snap-center shrink-0 w-full h-full flex items-center justify-center relative p-2">
+            <img src="images/column_cad.png" alt="Steering Column Mould CAD" class="max-w-full max-h-full object-contain rounded-lg" onerror="this.nextElementSibling.classList.remove('hidden'); this.classList.add('hidden');">
+            <div class="hidden py-6 text-slate-400 text-xs text-center">
+              <i class="fa-solid fa-image text-2xl mb-2 text-sky-400 block"></i>
+              <span class="font-semibold text-slate-300">Mould CAD Preview</span>
+              <p class="text-[10px] text-slate-500 mt-1">Image: images/column_mould_top.png</p>
+            </div>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">1/3 • Image</span>
+          </div>
+
+          <!-- Slide 2: Image -->
+          <div class="snap-center shrink-0 w-full h-full flex items-center justify-center relative p-2">
+            <img src="images/column_layup.jpg" alt="Steering Column Debulking" class="max-w-full max-h-full object-contain rounded-lg" onerror="this.nextElementSibling.classList.remove('hidden'); this.classList.add('hidden');">
+            <div class="hidden py-6 text-slate-400 text-xs text-center">
+              <i class="fa-solid fa-layer-group text-2xl mb-2 text-sky-400 block"></i>
+              <span class="font-semibold text-slate-300">Composite Debulking Process</span>
+              <p class="text-[10px] text-slate-500 mt-1">Image: images/column_debulk.jpg</p>
+            </div>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">2/3 • Image</span>
+          </div>
+
+          <!-- Slide 3: Image -->
+          <div class="snap-center shrink-0 w-full h-full flex items-center justify-center relative p-2">
+            <img src="images/column_debulk.jpg" alt="Steering Column Mould CAD" class="max-w-full max-h-full object-contain rounded-lg" onerror="this.nextElementSibling.classList.remove('hidden'); this.classList.add('hidden');">
+            <div class="hidden py-6 text-slate-400 text-xs text-center">
+              <i class="fa-solid fa-image text-2xl mb-2 text-sky-400 block"></i>
+              <span class="font-semibold text-slate-300">Mould CAD Preview</span>
+              <p class="text-[10px] text-slate-500 mt-1">Image: images/column_mould_top.png</p>
+            </div>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">1/3 • Image</span>
+          </div>
+          
+          <!-- Slide 4: Image -->
+          <div class="snap-center shrink-0 w-full h-full flex items-center justify-center relative p-2">
+            <img src="images/column_mould_bottom.png" alt="Steering Column Mould CAD" class="max-w-full max-h-full object-contain rounded-lg" onerror="this.nextElementSibling.classList.remove('hidden'); this.classList.add('hidden');">
+            <div class="hidden py-6 text-slate-400 text-xs text-center">
+              <i class="fa-solid fa-image text-2xl mb-2 text-sky-400 block"></i>
+              <span class="font-semibold text-slate-300">Mould CAD Preview</span>
+              <p class="text-[10px] text-slate-500 mt-1">Image: images/column_mould_top.png</p>
+            </div>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">1/3 • Image</span>
+          </div>
+
+          <!-- Slide 5: Image -->
+          <div class="snap-center shrink-0 w-full h-full flex items-center justify-center relative p-2">
+            <img src="images/column_mould_top.png" alt="Steering Column Mould CAD" class="max-w-full max-h-full object-contain rounded-lg" onerror="this.nextElementSibling.classList.remove('hidden'); this.classList.add('hidden');">
+            <div class="hidden py-6 text-slate-400 text-xs text-center">
+              <i class="fa-solid fa-image text-2xl mb-2 text-sky-400 block"></i>
+              <span class="font-semibold text-slate-300">Mould CAD Preview</span>
+              <p class="text-[10px] text-slate-500 mt-1">Image: images/column_mould_top.png</p>
+            </div>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">1/3 • Image</span>
+          </div>
+          
+
+        </div>
+
+        <!-- Navigation Buttons -->
+        <button onclick="scrollGallery('gallery-modal1', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-sky-500 text-white hover:text-slate-950 p-2.5 rounded-full shadow-lg transition-all border border-slate-700/50">
+          <i class="fa-solid fa-chevron-left text-xs"></i>
+        </button>
+        <button onclick="scrollGallery('gallery-modal1', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-sky-500 text-white hover:text-slate-950 p-2.5 rounded-full shadow-lg transition-all border border-slate-700/50">
+          <i class="fa-solid fa-chevron-right text-xs"></i>
+        </button>
+      </div>
+
+      <div class="space-y-6 text-xs text-slate-300 light:text-slate-600 leading-relaxed">
+        <!-- Overview -->
+        <div>
+          <h4 class="font-bold text-sky-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-circle-info"></i> Overview
+          </h4>
+          <p>
+            Redesigned the steering column mount in Siemens NX as a high-performance carbon fibre composite assembly to replace a heavier aluminum bracket on the Formula Student vehicle.
+          </p>
+        </div>
+
+        <!-- Technical Objectives -->
+        <div>
+          <h4 class="font-bold text-sky-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-bullseye"></i> Technical Objectives
+          </h4>
+          <ul class="list-disc list-inside space-y-1 pl-1">
+            <li>Maintain structural stiffness and strength under peak steering column bending and torsional loads.</li>
+            <li>Ensure distributed and reliable load transfer at the chassis mounting points.</li>
+            <li>Meet strict Formula Student regulation constraints and composite manufacturing limitations.</li>
+          </ul>
+        </div>
+
+        <!-- Key Metrics -->
+        <div>
+          <h4 class="font-bold text-sky-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-chart-line"></i> Key Metrics & Impact
+          </h4>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 my-2">
+            <div class="p-3 rounded-lg bg-slate-900/60 light:bg-slate-100 border border-slate-700/60 light:border-slate-200">
+              <span class="block text-slate-400 text-[10px]">Weight Reduction</span>
+              <span class="text-sm font-bold text-white light:text-slate-900">58.6% Drop</span>
+            </div>
+            <div class="p-3 rounded-lg bg-slate-900/60 light:bg-slate-100 border border-slate-700/60 light:border-slate-200">
+              <span class="block text-slate-400 text-[10px]">Mass Saved</span>
+              <span class="text-sm font-bold text-white light:text-slate-900">295g to 122g</span>
+            </div>
+            <div class="p-3 rounded-lg bg-slate-900/60 light:bg-slate-100 border border-slate-700/60 light:border-slate-200 col-span-2 sm:col-span-1">
+              <span class="block text-slate-400 text-[10px]">Competition Testing</span>
+              <span class="text-sm font-bold text-white light:text-slate-900">100% Load Success</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Methodology -->
+        <div>
+          <h4 class="font-bold text-sky-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-gears"></i> Methodology
+          </h4>
+          <p class="mb-2">
+            Selected a carbon fibre prepreg with a Rohacell sandwich core structure. Fiber orientations were tailored specifically to align with primary bending moments and steering reaction torques.
+          </p>
+          <p>
+            Designed a 3-part epoxy tooling board mold to guarantee clean release after oven curing. Worked directly with Penta Patterns to create production drawings with GD&T applied to ensure tight mounting alignment tolerances.
+          </p>
+        </div>
+
+        <!-- Tools & Framework -->
+        <div>
+          <h4 class="font-bold text-sky-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-wrench"></i> Tools & Framework
+          </h4>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">Siemens NX CAD</span>
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">Prepreg Carbon Fibre</span>
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">Rohacell Core Sandwich</span>
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">Epoxy Tooling Mold</span>
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">Penta Patterns GD&T</span>
+          </div>
+        </div>
+
+        <!-- Learning Outcome -->
+        <div class="p-4 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-300">
+          <h4 class="font-bold text-sky-400 text-sm mb-1 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-graduation-cap"></i> Learning Outcome
+          </h4>
+          <p class="text-slate-200 leading-relaxed">
+            Built on knowledge of composite ply orientation strategies and sandwich core boundary integration, gaining direct insight into manufacturing constraints for oven-cured prepreg structures. Learned the importance of GD&T when conveying key manufacturing information to external manufacturers.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Formula Student EV Rear Suspension -->
+  <div id="modal2" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm">
+    <div class="bg-slate-800 light:bg-white border border-slate-700 light:border-slate-200 max-w-3xl w-full rounded-2xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto relative shadow-2xl">
+      <button onclick="closeModal('modal2')" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg z-20">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <span class="px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 text-xs font-mono font-bold">Safety Factor 2.6</span>
+      <h3 class="text-2xl font-bold text-white light:text-slate-900 mt-2 mb-4">Formula Student EV Rear Suspension</h3>
+
+      <!-- Multi-Media Carousel Container -->
+      <div class="relative group mb-6">
+        <div id="gallery-modal2" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar rounded-xl border border-slate-700 light:border-slate-200 bg-slate-900/80 h-64 sm:h-80">
+          
+          <!-- Slide 1: Image -->
+          <div class="snap-center shrink-0 w-full h-full flex items-center justify-center relative p-2">
+            <img src="images/fcc_wishbones.png" alt="Rear Suspension FEA Results" class="max-w-full max-h-full object-contain rounded-lg" onerror="this.nextElementSibling.classList.remove('hidden'); this.classList.add('hidden');">
+            <div class="hidden py-6 text-slate-400 text-xs text-center">
+              <i class="fa-solid fa-chart-diagram text-2xl mb-2 text-emerald-400 block"></i>
+              <span class="font-semibold text-slate-300">FEA Stress Contour Analysis</span>
+              <p class="text-[10px] text-slate-500 mt-1">Image: images/wb_fea_result.png</p>
+            </div>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">1/3 • FEA Render</span>
+          </div>
+
+          <!-- Slide 2: Image -->
+          <div class="snap-center shrink-0 w-full h-full flex items-center justify-center relative p-2">
+            <img src="images/wb_fea_setup.png" alt="Wishbone Load Boundary Setup" class="max-w-full max-h-full object-contain rounded-lg" onerror="this.nextElementSibling.classList.remove('hidden'); this.classList.add('hidden');">
+            <div class="hidden py-6 text-slate-400 text-xs text-center">
+              <i class="fa-solid fa-car text-2xl mb-2 text-emerald-400 block"></i>
+              <span class="font-semibold text-slate-300">Load Constraint Boundary Setup</span>
+              <p class="text-[10px] text-slate-500 mt-1">Image: images/wb_fea_setup.png</p>
+            </div>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">2/3 • Setup Diagram</span>
+          </div>
+
+          <!-- Slide 3: Image -->
+          <div class="snap-center shrink-0 w-full h-full flex items-center justify-center relative p-2">
+            <img src="images/wb_fea_result.png" alt="Wishbone Load Boundary Setup" class="max-w-full max-h-full object-contain rounded-lg" onerror="this.nextElementSibling.classList.remove('hidden'); this.classList.add('hidden');">
+            <div class="hidden py-6 text-slate-400 text-xs text-center">
+              <i class="fa-solid fa-car text-2xl mb-2 text-emerald-400 block"></i>
+              <span class="font-semibold text-slate-300">Load Constraint Boundary Setup</span>
+              <p class="text-[10px] text-slate-500 mt-1">Image: images/wb_fea_setup.png</p>
+            </div>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">2/3 • Setup Diagram</span>
+          </div>
+
+          <!-- Slide 4: Image -->
+          <div class="snap-center shrink-0 w-full h-full flex items-center justify-center relative p-2">
+            <img src="images/wishbone_dwg.png" alt="Wishbone Load Boundary Setup" class="max-w-full max-h-full object-contain rounded-lg" onerror="this.nextElementSibling.classList.remove('hidden'); this.classList.add('hidden');">
+            <div class="hidden py-6 text-slate-400 text-xs text-center">
+              <i class="fa-solid fa-car text-2xl mb-2 text-emerald-400 block"></i>
+              <span class="font-semibold text-slate-300">Load Constraint Boundary Setup</span>
+              <p class="text-[10px] text-slate-500 mt-1">Image: images/wb_fea_setup.png</p>
+            </div>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">2/3 • Setup Diagram</span>
+          </div>
+
+          <!-- Slide 5: Video -->
+          <div class="snap-center shrink-0 w-full h-full flex items-center justify-center relative p-2">
+            <video controls class="max-w-full max-h-full rounded-lg">
+              <source src="videos/suspension_moving.mp4" type="video/mp4">
+              Your browser does not support video playback.
+            </video>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">3/3 • Track Testing Video</span>
+          </div>
+
+        </div>
+
+        <!-- Navigation Buttons -->
+        <button onclick="scrollGallery('gallery-modal2', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-emerald-500 text-white hover:text-slate-950 p-2.5 rounded-full shadow-lg transition-all border border-slate-700/50">
+          <i class="fa-solid fa-chevron-left text-xs"></i>
+        </button>
+        <button onclick="scrollGallery('gallery-modal2', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-emerald-500 text-white hover:text-slate-950 p-2.5 rounded-full shadow-lg transition-all border border-slate-700/50">
+          <i class="fa-solid fa-chevron-right text-xs"></i>
+        </button>
+      </div>
+
+      <div class="space-y-6 text-xs text-slate-300 light:text-slate-600 leading-relaxed">
+        <!-- Overview -->
+        <div>
+          <h4 class="font-bold text-emerald-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-circle-info"></i> Overview
+          </h4>
+          <p>
+            Redesigned the suspension members for the Formula Student EV platform including wishbones, push/pull-rods and track-rods. Legacy carbon tubes with 3D printed titanium inserts proved vulnerable to fatigue and bonding failures during track testing.
+          </p>
+        </div>
+
+        <!-- Technical Objectives -->
+        <div>
+          <h4 class="font-bold text-emerald-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-bullseye"></i> Technical Objectives
+          </h4>
+          <ul class="list-disc list-inside space-y-1 pl-1">
+            <li>Accommodate higher bump load cases resulting from increased vehicle mass.</li>
+            <li>Achieve higher structural safety factors while restricting overall weight penalty.</li>
+            <li>Ensure design can be fabricated completely in-house to respect team budget constraints.</li>
+          </ul>
+        </div>
+
+        <!-- Key Metrics -->
+        <div>
+          <h4 class="font-bold text-emerald-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-chart-line"></i> Key Metrics & Impact
+          </h4>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 my-2">
+            <div class="p-3 rounded-lg bg-slate-900/60 light:bg-slate-100 border border-slate-700/60 light:border-slate-200">
+              <span class="block text-slate-400 text-[10px]">Safety Factor</span>
+              <span class="text-sm font-bold text-white light:text-slate-900">2.6 Peak Load</span>
+            </div>
+            <div class="p-3 rounded-lg bg-slate-900/60 light:bg-slate-100 border border-slate-700/60 light:border-slate-200">
+              <span class="block text-slate-400 text-[10px]">Structural Material</span>
+              <span class="text-sm font-bold text-white light:text-slate-900">T45 / E45 Steel</span>
+            </div>
+            <div class="p-3 rounded-lg bg-slate-900/60 light:bg-slate-100 border border-slate-700/60 light:border-slate-200 col-span-2 sm:col-span-1">
+              <span class="block text-slate-400 text-[10px]">Deflection Control</span>
+              <span class="text-sm font-bold text-white light:text-slate-900">Low deflection under peak load</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Methodology -->
+        <div>
+          <h4 class="font-bold text-emerald-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-gears"></i> Methodology
+          </h4>
+          <p class="mb-2">
+            Evaluated suspension load cases to map primary force paths. Selected T45 seamless steel tubing combined with E45 welded steel inserts to ensure reliable joint fatigue performance.
+          </p>
+          <p>
+            Optimized tube outer diameters and wall thicknesses in Siemens Nastran FEA. Set up simulations for each loadcase scenario and validated weld geometries and stress concentrations under combined braking, cornering, and acceleration conditions.
+          </p>
+        </div>
+
+        <!-- Tools & Framework -->
+        <div>
+          <h4 class="font-bold text-emerald-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-wrench"></i> Tools & Framework
+          </h4>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">NX Nastran</span>
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">Siemens NX</span>
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">Hand Calculations</span>
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">Load Path Analysis</span>
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">Deflection Study</span>
+          </div>
+        </div>
+
+        <!-- Learning Outcome -->
+        <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-300">
+          <h4 class="font-bold text-emerald-400 text-sm mb-1 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-graduation-cap"></i> Learning Outcome
+          </h4>
+          <p class="text-slate-200 leading-relaxed">
+            Gained a practical understanding of transient effects on structural joints, reinforcing the importance of metallic weld integrity over bonded composite alternatives under high cyclic fatigue.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Laser-Cut Steel Wishbone Jig -->
+  <div id="modal3" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm">
+    <div class="bg-slate-800 light:bg-white border border-slate-700 light:border-slate-200 max-w-3xl w-full rounded-2xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto relative shadow-2xl">
+      <button onclick="closeModal('modal3')" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg z-20">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <span class="px-2.5 py-1 rounded bg-amber-500/10 text-amber-400 text-xs font-mono font-bold">20µm Precision</span>
+      <h3 class="text-2xl font-bold text-white light:text-slate-900 mt-2 mb-4">Laser-Cut Steel Wishbone Jig</h3>
+
+      <!-- Multi-Media Carousel Container -->
+      <div class="relative group mb-6">
+        <div id="gallery-modal3" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar rounded-xl border border-slate-700 light:border-slate-200 bg-slate-900/80 h-64 sm:h-80">
+          
+          <!-- Slide 1: Image -->
+          <div class="snap-center shrink-0 w-full h-full flex items-center justify-center relative p-2">
+            <img src="images/crusty_cad.png" alt="Wishbone Jig CAD Model" class="max-w-full max-h-full object-contain rounded-lg" onerror="this.nextElementSibling.classList.remove('hidden'); this.classList.add('hidden');">
+            <div class="hidden py-6 text-slate-400 text-xs text-center">
+              <i class="fa-solid fa-draw-polygon text-2xl mb-2 text-amber-400 block"></i>
+              <span class="font-semibold text-slate-300">Interlocking Jig Assembly CAD</span>
+              <p class="text-[10px] text-slate-500 mt-1">Image: images/crusty_cad.png</p>
+            </div>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">1/3 • CAD Assembly</span>
+          </div>
+          
+          <!-- Slide 2: Video -->
+          <div class="snap-center shrink-0 w-full h-full flex items-center justify-center relative p-2">
+            <video controls class="max-w-full max-h-full rounded-lg">
+              <source src="videos/tower_rotate.mp4" type="video/mp4">
+              Your browser does not support video playback.
+            </video>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">3/3 • Slot-Rivet Locking Video</span>
+          </div>
+
+          <!-- Slide 3: Video -->
+          <div class="snap-center shrink-0 w-full h-full flex items-center justify-center relative p-2">
+            <video controls class="max-w-full max-h-full rounded-lg">
+              <source src="videos/laser_cut.mp4" type="video/mp4">
+              Your browser does not support video playback.
+            </video>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">3/3 • Slot-Rivet Locking Video</span>
+          </div>
+
+          <!-- Slide 4: Image -->
+          <div class="snap-center shrink-0 w-full h-full flex items-center justify-center relative p-2">
+            <img src="images/me_at_metlase.jpg" alt="Welded Wishbone in Jig" class="max-w-full max-h-full object-contain rounded-lg" onerror="this.nextElementSibling.classList.remove('hidden'); this.classList.add('hidden');">
+            <div class="hidden py-6 text-slate-400 text-xs text-center">
+              <i class="fa-solid fa-screwdriver-wrench text-2xl mb-2 text-amber-400 block"></i>
+              <span class="font-semibold text-slate-300">Physical Jigged Welding Setup</span>
+              <p class="text-[10px] text-slate-500 mt-1">Image: images/wishbone-jig.jpg</p>
+            </div>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">2/3 • Physical Assembly</span>
+          </div>
+
+        </div>
+
+        <!-- Navigation Buttons -->
+        <button onclick="scrollGallery('gallery-modal3', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-amber-500 text-white hover:text-slate-950 p-2.5 rounded-full shadow-lg transition-all border border-slate-700/50">
+          <i class="fa-solid fa-chevron-left text-xs"></i>
+        </button>
+        <button onclick="scrollGallery('gallery-modal3', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-amber-500 text-white hover:text-slate-950 p-2.5 rounded-full shadow-lg transition-all border border-slate-700/50">
+          <i class="fa-solid fa-chevron-right text-xs"></i>
+        </button>
+      </div>
+
+      <div class="space-y-6 text-xs text-slate-300 light:text-slate-600 leading-relaxed">
+        <!-- Overview -->
+        <div>
+          <h4 class="font-bold text-amber-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-circle-info"></i> Overview
+          </h4>
+          <p>
+            Designed an interlocking laser-cut steel welding jig in Siemens NX in collaboration with industry sponsor 'Metlase'. Replaced legacy wood/MDF fixtures to ensure repeatable dimensional accuracy when tacking and welding suspension wishbones.
+          </p>
+        </div>
+
+        <!-- Technical Objectives -->
+        <div>
+          <h4 class="font-bold text-amber-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-bullseye"></i> Technical Objectives
+          </h4>
+          <ul class="list-disc list-inside space-y-1 pl-1">
+            <li>Guarantee tight geometric tolerances for wishbone pickup hardpoints during welding.</li>
+            <li>Provide comfortable torch access for welders to tack-weld small steel components before final seams.</li>
+            <li>Eliminate fixture warping caused by thermal expansion during welding processes.</li>
+          </ul>
+        </div>
+
+        <!-- Key Metrics -->
+        <div>
+          <h4 class="font-bold text-amber-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-chart-line"></i> Key Metrics & Impact
+          </h4>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 my-2">
+            <div class="p-3 rounded-lg bg-slate-900/60 light:bg-slate-100 border border-slate-700/60 light:border-slate-200">
+              <span class="block text-slate-400 text-[10px]">Laser Accuracy</span>
+              <span class="text-sm font-bold text-white light:text-slate-900">20µm Precision</span>
+            </div>
+            <div class="p-3 rounded-lg bg-slate-900/60 light:bg-slate-100 border border-slate-700/60 light:border-slate-200">
+              <span class="block text-slate-400 text-[10px]">Assembly Fit</span>
+              <span class="text-sm font-bold text-white light:text-slate-900">Seamless Lock</span>
+            </div>
+            <div class="p-3 rounded-lg bg-slate-900/60 light:bg-slate-100 border border-slate-700/60 light:border-slate-200 col-span-2 sm:col-span-1">
+              <span class="block text-slate-400 text-[10px]">Sponsor Technology</span>
+              <span class="text-sm font-bold text-white light:text-slate-900">Metlase Slot-Rivet</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Methodology -->
+        <div>
+          <h4 class="font-bold text-amber-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-gears"></i> Methodology
+          </h4>
+          <p class="mb-2">
+            Utilized Siemens NX Tab functions alongside Metlase's slot-rivet mechanical fastening system. Structured the CAD assembly hierarchy to allow rapid modification for different suspension geometry iterations.
+          </p>
+          <p>
+            Exported tab geometry as DXF vector profiles directly into laser cutting software. Physical sheet steel components self-aligned seamlessly without manual positioning jigs.
+          </p>
+        </div>
+
+        <!-- Tools & Framework -->
+        <div>
+          <h4 class="font-bold text-amber-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-wrench"></i> Tools & Framework
+          </h4>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">Siemens NX CAD</span>
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">Metlase Slot-Rivet</span>
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">DXF Export</span>
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">20µm Laser Cutting</span>
+          </div>
+        </div>
+
+        <!-- Learning Outcome -->
+        <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-300">
+          <h4 class="font-bold text-amber-400 text-sm mb-1 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-graduation-cap"></i> Learning Outcome
+          </h4>
+          <p class="text-slate-200 leading-relaxed">
+            Learned how design-for-manufacture (DFM) principles and industrial slot-rivet joining techniques drastically reduce assembly time and eliminate fixture tolerances in precision motorsport tooling.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4: Modbus Python HMI -->
+  <div id="modal4" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm">
+    <div class="bg-slate-800 light:bg-white border border-slate-700 light:border-slate-200 max-w-3xl w-full rounded-2xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto relative shadow-2xl">
+      <button onclick="closeModal('modal4')" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg z-20">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <span class="px-2.5 py-1 rounded bg-purple-500/10 text-purple-400 text-xs font-mono font-bold">Modbus RTU & TCP</span>
+      <h3 class="text-2xl font-bold text-white light:text-slate-900 mt-2 mb-4">Modbus Python HMI & Data Acquisition</h3>
+
+      <!-- Multi-Media Carousel Container -->
+      <div class="relative group mb-6">
+        <div id="gallery-modal4" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar rounded-xl border border-slate-700 light:border-slate-200 bg-slate-900/80 h-64 sm:h-80">
+          
+          <!-- Slide 1: Image -->
+          <div class="snap-center shrink-0 w-full h-full flex items-center justify-center relative p-2">
+            <img src="images/live_reading.png" alt="Python Live Reading Interface" class="max-w-full max-h-full object-contain rounded-lg" onerror="this.nextElementSibling.classList.remove('hidden'); this.classList.add('hidden');">
+            <div class="hidden py-6 text-slate-400 text-xs text-center">
+              <i class="fa-solid fa-desktop text-2xl mb-2 text-purple-400 block"></i>
+              <span class="font-semibold text-slate-300">Live Telemetry Dashboard GUI</span>
+              <p class="text-[10px] text-slate-500 mt-1">Image: images/live_reading.png</p>
+            </div>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">1/3 • Software Interface</span>
+          </div>
+
+          <!-- Slide 2: Image -->
+          <div class="snap-center shrink-0 w-full h-full flex items-center justify-center relative p-2">
+            <img src="images/fluidised_bed.jpg" alt="Spyder Code & Rig Hardware" class="max-w-full max-h-full object-contain rounded-lg" onerror="this.nextElementSibling.classList.remove('hidden'); this.classList.add('hidden');">
+            <div class="hidden py-6 text-slate-400 text-xs text-center">
+              <i class="fa-solid fa-code text-2xl mb-2 text-purple-400 block"></i>
+              <span class="font-semibold text-slate-300">Async Loop Architecture</span>
+              <p class="text-[10px] text-slate-500 mt-1">Image: images/python-hmi.jpg</p>
+            </div>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">2/3 • Python Architecture</span>
+          </div>
+          
+          <!-- Slide 3: Image -->
+          <div class="snap-center shrink-0 w-full h-full flex items-center justify-center relative p-2">
+            <img src="images/brick_factory.jpg" alt="Spyder Code & Rig Hardware" class="max-w-full max-h-full object-contain rounded-lg" onerror="this.nextElementSibling.classList.remove('hidden'); this.classList.add('hidden');">
+            <div class="hidden py-6 text-slate-400 text-xs text-center">
+              <i class="fa-solid fa-code text-2xl mb-2 text-purple-400 block"></i>
+              <span class="font-semibold text-slate-300">Async Loop Architecture</span>
+              <p class="text-[10px] text-slate-500 mt-1">Image: images/python-hmi.jpg</p>
+            </div>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">2/3 • Python Architecture</span>
+          </div>
+
+        </div>
+
+        <!-- Navigation Buttons -->
+        <button onclick="scrollGallery('gallery-modal4', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-purple-500 text-white hover:text-slate-950 p-2.5 rounded-full shadow-lg transition-all border border-slate-700/50">
+          <i class="fa-solid fa-chevron-left text-xs"></i>
+        </button>
+        <button onclick="scrollGallery('gallery-modal4', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-purple-500 text-white hover:text-slate-950 p-2.5 rounded-full shadow-lg transition-all border border-slate-700/50">
+          <i class="fa-solid fa-chevron-right text-xs"></i>
+        </button>
+      </div>
+
+      <div class="space-y-6 text-xs text-slate-300 light:text-slate-600 leading-relaxed">
+        <!-- Overview -->
+        <div>
+          <h4 class="font-bold text-purple-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-circle-info"></i> Overview
+          </h4>
+          <p>
+            Tasked with engineering a real-time data acquisition and monitoring interface during a summer internship. The program interfaced with Modbus DAQ cards to capture live sensor telemetry across experimental test rigs.
+          </p>
+        </div>
+
+        <!-- Technical Objectives -->
+        <div>
+          <h4 class="font-bold text-purple-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-bullseye"></i> Technical Objectives
+          </h4>
+          <ul class="list-disc list-inside space-y-1 pl-1">
+            <li>Convert raw electrical signals (4-20mA & 0-10V) into physical engineering units (temperature, pressure, mass flow).</li>
+            <li>Provide real-time interactive trend visualization during live rig trials.</li>
+            <li>Streamline post-processing by automatically logging timestamped sensor data to structured CSV files.</li>
+          </ul>
+        </div>
+
+        <!-- Key Metrics -->
+        <div>
+          <h4 class="font-bold text-purple-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-chart-line"></i> Key Metrics & Impact
+          </h4>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 my-2">
+            <div class="p-3 rounded-lg bg-slate-900/60 light:bg-slate-100 border border-slate-700/60 light:border-slate-200">
+              <span class="block text-slate-400 text-[10px]">Protocols Handled</span>
+              <span class="text-sm font-bold text-white light:text-slate-900">Modbus RTU & TCP</span>
+            </div>
+            <div class="p-3 rounded-lg bg-slate-900/60 light:bg-slate-100 border border-slate-700/60 light:border-slate-200">
+              <span class="block text-slate-400 text-[10px]">Stakeholder Impact</span>
+              <span class="text-sm font-bold text-white light:text-slate-900">Presented in Italy</span>
+            </div>
+            <div class="p-3 rounded-lg bg-slate-900/60 light:bg-slate-100 border border-slate-700/60 light:border-slate-200 col-span-2 sm:col-span-1">
+              <span class="block text-slate-400 text-[10px]">Deployment</span>
+              <span class="text-sm font-bold text-white light:text-slate-900">Multi-Rig Standard</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Methodology -->
+        <div>
+          <h4 class="font-bold text-purple-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-gears"></i> Methodology
+          </h4>
+          <p class="mb-2">
+            Built the application in Python (Spyder IDE) using asynchronous execution loops to separate Modbus communication polling from user interface rendering.
+          </p>
+          <p>
+            Integrated dynamic graphing libraries to allow real-time monitoring of thermal and pressure transients. Presented trial findings directly to company executive directors in Italy, proving software utility for future experimental rigs.
+          </p>
+        </div>
+
+        <!-- Tools & Framework -->
+        <div>
+          <h4 class="font-bold text-purple-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-wrench"></i> Tools & Framework
+          </h4>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">Python (Spyder IDE)</span>
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">Modbus RTU & TCP</span>
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">Asynchronous Loops</span>
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">CSV Data Handling</span>
+          </div>
+        </div>
+
+        <!-- Learning Outcome -->
+        <div class="p-4 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-300">
+          <h4 class="font-bold text-purple-400 text-sm mb-1 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-graduation-cap"></i> Learning Outcome
+          </h4>
+          <p class="text-slate-200 leading-relaxed">
+            Enhanced proficiency in asynchronous data collection pipelines and industrial communication protocols, bridging the gap between mechanical testing hardware and software visualization interfaces.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 5: 1970's Planetary Mixer Restoration -->
+  <div id="modal5" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm">
+    <div class="bg-slate-800 light:bg-white border border-slate-700 light:border-slate-200 max-w-3xl w-full rounded-2xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto relative shadow-2xl">
+      <button onclick="closeModal('modal5')" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg z-20">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <span class="px-2.5 py-1 rounded bg-rose-500/10 text-rose-400 text-xs font-mono font-bold">Reverse Engineering</span>
+      <h3 class="text-2xl font-bold text-white light:text-slate-900 mt-2 mb-4">1970's Planetary Mixer Restoration</h3>
+
+      <!-- Multi-Media Carousel Container -->
+      <div class="relative group mb-6">
+        <div id="gallery-modal5" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar rounded-xl border border-slate-700 light:border-slate-200 bg-slate-900/80 h-64 sm:h-80">
+          
+          <!-- Slide 1: Image -->
+          <div class="snap-center shrink-0 w-full h-full flex items-center justify-center relative p-2">
+            <img src="images/mixer_sad.jpg" alt="Mixer Disassembled Gearbox" class="max-w-full max-h-full object-contain rounded-lg" onerror="this.nextElementSibling.classList.remove('hidden'); this.classList.add('hidden');">
+            <div class="hidden py-6 text-slate-400 text-xs text-center">
+              <i class="fa-solid fa-gears text-2xl mb-2 text-rose-400 block"></i>
+              <span class="font-semibold text-slate-300">Internal Teardown & Diagnosis</span>
+              <p class="text-[10px] text-slate-500 mt-1">Image: images/mixer_disassembled.jpg</p>
+            </div>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">1/3 • Teardown View</span>
+          </div>
+
+          <!-- Slide 2: Image -->
+          <div class="snap-center shrink-0 w-full h-full flex items-center justify-center relative p-2">
+            <img src="images/mixer_disassembled.jpg" alt="Restored Planetary Mixer" class="max-w-full max-h-full object-contain rounded-lg" onerror="this.nextElementSibling.classList.remove('hidden'); this.classList.add('hidden');">
+            <div class="hidden py-6 text-slate-400 text-xs text-center">
+              <i class="fa-solid fa-wand-magic-sparkles text-2xl mb-2 text-rose-400 block"></i>
+              <span class="font-semibold text-slate-300">Completed Rebuild & Paint</span>
+              <p class="text-[10px] text-slate-500 mt-1">Image: images/mixer-restoration.jpg</p>
+            </div>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">2/3 • Completed Machine</span>
+          </div>
+          
+          <!-- Slide 3: Image -->
+          <div class="snap-center shrink-0 w-full h-full flex items-center justify-center relative p-2">
+            <img src="images/spring_fixed.jpg" alt="Restored Planetary Mixer" class="max-w-full max-h-full object-contain rounded-lg" onerror="this.nextElementSibling.classList.remove('hidden'); this.classList.add('hidden');">
+            <div class="hidden py-6 text-slate-400 text-xs text-center">
+              <i class="fa-solid fa-wand-magic-sparkles text-2xl mb-2 text-rose-400 block"></i>
+              <span class="font-semibold text-slate-300">Completed Rebuild & Paint</span>
+              <p class="text-[10px] text-slate-500 mt-1">Image: images/mixer-restoration.jpg</p>
+            </div>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">2/3 • Completed Machine</span>
+          </div>
+          
+          <!-- Slide 4: Image -->
+          <div class="snap-center shrink-0 w-full h-full flex items-center justify-center relative p-2">
+            <img src="images/mixer_greased.jpg" alt="Restored Planetary Mixer" class="max-w-full max-h-full object-contain rounded-lg" onerror="this.nextElementSibling.classList.remove('hidden'); this.classList.add('hidden');">
+            <div class="hidden py-6 text-slate-400 text-xs text-center">
+              <i class="fa-solid fa-wand-magic-sparkles text-2xl mb-2 text-rose-400 block"></i>
+              <span class="font-semibold text-slate-300">Completed Rebuild & Paint</span>
+              <p class="text-[10px] text-slate-500 mt-1">Image: images/mixer-restoration.jpg</p>
+            </div>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">2/3 • Completed Machine</span>
+          </div>
+          
+          <!-- Slide 5: Video -->
+          <div class="snap-center shrink-0 w-full h-full flex items-center justify-center relative p-2">
+            <video controls class="max-w-full max-h-full rounded-lg">
+              <source src="videos/mixer_moving.mp4" type="video/mp4">
+              Your browser does not support video playback.
+            </video>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">3/3 • Operational Testing Video</span>
+          </div>
+          
+          <!-- Slide 6: Image -->
+          <div class="snap-center shrink-0 w-full h-full flex items-center justify-center relative p-2">
+            <img src="images/bread.jpg" alt="Restored Planetary Mixer" class="max-w-full max-h-full object-contain rounded-lg" onerror="this.nextElementSibling.classList.remove('hidden'); this.classList.add('hidden');">
+            <div class="hidden py-6 text-slate-400 text-xs text-center">
+              <i class="fa-solid fa-wand-magic-sparkles text-2xl mb-2 text-rose-400 block"></i>
+              <span class="font-semibold text-slate-300">Completed Rebuild & Paint</span>
+              <p class="text-[10px] text-slate-500 mt-1">Image: images/mixer-restoration.jpg</p>
+            </div>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">2/3 • Completed Machine</span>
+          </div>
+
+        </div>
+
+        <!-- Navigation Buttons -->
+        <button onclick="scrollGallery('gallery-modal5', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-rose-500 text-white hover:text-slate-950 p-2.5 rounded-full shadow-lg transition-all border border-slate-700/50">
+          <i class="fa-solid fa-chevron-left text-xs"></i>
+        </button>
+        <button onclick="scrollGallery('gallery-modal5', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-rose-500 text-white hover:text-slate-950 p-2.5 rounded-full shadow-lg transition-all border border-slate-700/50">
+          <i class="fa-solid fa-chevron-right text-xs"></i>
+        </button>
+      </div>
+
+      <div class="space-y-6 text-xs text-slate-300 light:text-slate-600 leading-relaxed">
+        <!-- Overview -->
+        <div>
+          <h4 class="font-bold text-rose-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-circle-info"></i> Overview
+          </h4>
+          <p>
+            An interest-driven electro-mechanical teardown and refurbishment of a non-functional 1970s commercial planetary mixer. Tackled limited online documentation by systematically reverse-engineering internal gear engagement systems.
+          </p>
+        </div>
+
+        <!-- Technical Objectives -->
+        <div>
+          <h4 class="font-bold text-rose-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-bullseye"></i> Technical Objectives
+          </h4>
+          <ul class="list-disc list-inside space-y-1 pl-1">
+            <li>Diagnose cause of gear transmission failure across 2 out of 3 gear settings.</li>
+            <li>Overhaul motor assembly, internal gear drive shaft, and oil sealing interfaces.</li>
+            <li>Restore unit to fully functional daily use for sourdough dough processing.</li>
+          </ul>
+        </div>
+
+        <!-- Key Metrics -->
+        <div>
+          <h4 class="font-bold text-rose-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-chart-line"></i> Key Metrics & Impact
+          </h4>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 my-2">
+            <div class="p-3 rounded-lg bg-slate-900/60 light:bg-slate-100 border border-slate-700/60 light:border-slate-200">
+              <span class="block text-slate-400 text-[10px]">Asset Valuation</span>
+              <span class="text-sm font-bold text-white light:text-slate-900">£50 to £500</span>
+            </div>
+            <div class="p-3 rounded-lg bg-slate-900/60 light:bg-slate-100 border border-slate-700/60 light:border-slate-200">
+              <span class="block text-slate-400 text-[10px]">Gears Restored</span>
+              <span class="text-sm font-bold text-white light:text-slate-900">3/3 Functional</span>
+            </div>
+            <div class="p-3 rounded-lg bg-slate-900/60 light:bg-slate-100 border border-slate-700/60 light:border-slate-200 col-span-2 sm:col-span-1">
+              <span class="block text-slate-400 text-[10px]">Primary Fault</span>
+              <span class="text-sm font-bold text-white light:text-slate-900">Diving Key Spring</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Methodology -->
+        <div>
+          <h4 class="font-bold text-rose-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-gears"></i> Methodology
+          </h4>
+          <p class="mb-2">
+            Disassembled the entire gear housing and motor, logging all component sequences. Identified a broken diving key spring in the primary transmission shaft as the root failure cause.
+          </p>
+          <p>
+            Sourced replacement hardware from Liverpool, serviced the planetary gearbox with fresh high-pressure grease, fitted new oil seals, and re-sprayed the exterior bodywork.
+          </p>
+        </div>
+
+        <!-- Tools & Framework -->
+        <div>
+          <h4 class="font-bold text-rose-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-wrench"></i> Tools & Framework
+          </h4>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">Mechanical Diagnosis</span>
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">Gearbox Servicing</span>
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">Oil Seal Swap</span>
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">Chassis Paint Refinishing</span>
+          </div>
+        </div>
+
+        <!-- Learning Outcome -->
+        <div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-300">
+          <h4 class="font-bold text-rose-400 text-sm mb-1 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-graduation-cap"></i> Learning Outcome
+          </h4>
+          <p class="text-slate-200 leading-relaxed">
+            Strengthened reverse-engineering intuition and mechanical troubleshooting methodology by diagnosing complex planetary gear trains without service manuals.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 6: 2-Stage e-Bike Gearbox & FEA -->
+  <div id="modal6" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm">
+    <div class="bg-slate-800 light:bg-white border border-slate-700 light:border-slate-200 max-w-3xl w-full rounded-2xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto relative shadow-2xl">
+      <button onclick="closeModal('modal6')" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg z-20">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <span class="px-2.5 py-1 rounded bg-cyan-500/10 text-cyan-400 text-xs font-mono font-bold">250W e-Bike FEA</span>
+      <h3 class="text-2xl font-bold text-white light:text-slate-900 mt-2 mb-4">2-Stage e-Bike Gearbox & FEA Validation</h3>
+
+      <!-- Multi-Media Carousel Container -->
+      <div class="relative group mb-6">
+        <div id="gallery-modal6" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar rounded-xl border border-slate-700 light:border-slate-200 bg-slate-900/80 h-64 sm:h-80">
+          
+          <!-- Slide 1: Image -->
+          <div class="snap-center shrink-0 w-full h-full flex items-center justify-center relative p-2">
+            <img src="images/gearbox_naked.png" alt="Gear Spline Stress Analysis" class="max-w-full max-h-full object-contain rounded-lg" onerror="this.nextElementSibling.classList.remove('hidden'); this.classList.add('hidden');">
+            <div class="hidden py-6 text-slate-400 text-xs text-center">
+              <i class="fa-solid fa-dharmachakra text-2xl mb-2 text-cyan-400 block"></i>
+              <span class="font-semibold text-slate-300">Spline Drive FEA FE Simulation</span>
+              <p class="text-[10px] text-slate-500 mt-1">Image: images/spline_fea.png</p>
+            </div>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">1/3 • Spline FEA</span>
+          </div>
+
+          <!-- Slide 2: Image -->
+          <div class="snap-center shrink-0 w-full h-full flex items-center justify-center relative p-2">
+            <img src="images/gearbox_decent.png" alt="Assembly Bench Testing Setup" class="max-w-full max-h-full object-contain rounded-lg" onerror="this.nextElementSibling.classList.remove('hidden'); this.classList.add('hidden');">
+            <div class="hidden py-6 text-slate-400 text-xs text-center">
+              <i class="fa-solid fa-cubes text-2xl mb-2 text-cyan-400 block"></i>
+              <span class="font-semibold text-slate-300">Acrylic Gearbox Bench Test Setup</span>
+              <p class="text-[10px] text-slate-500 mt-1">Image: images/acrylic-gearbox-fea.jpg</p>
+            </div>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">2/3 • Prototype Rig</span>
+          </div>
+          
+          <!-- Slide 3: Image -->
+          <div class="snap-center shrink-0 w-full h-full flex items-center justify-center relative p-2">
+            <img src="images/spine_connector.png" alt="Assembly Bench Testing Setup" class="max-w-full max-h-full object-contain rounded-lg" onerror="this.nextElementSibling.classList.remove('hidden'); this.classList.add('hidden');">
+            <div class="hidden py-6 text-slate-400 text-xs text-center">
+              <i class="fa-solid fa-cubes text-2xl mb-2 text-cyan-400 block"></i>
+              <span class="font-semibold text-slate-300">Acrylic Gearbox Bench Test Setup</span>
+              <p class="text-[10px] text-slate-500 mt-1">Image: images/acrylic-gearbox-fea.jpg</p>
+            </div>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">2/3 • Prototype Rig</span>
+          </div>
+          
+          <!-- Slide 4: Image -->
+          <div class="snap-center shrink-0 w-full h-full flex items-center justify-center relative p-2">
+            <img src="images/spline_fea.png" alt="Assembly Bench Testing Setup" class="max-w-full max-h-full object-contain rounded-lg" onerror="this.nextElementSibling.classList.remove('hidden'); this.classList.add('hidden');">
+            <div class="hidden py-6 text-slate-400 text-xs text-center">
+              <i class="fa-solid fa-cubes text-2xl mb-2 text-cyan-400 block"></i>
+              <span class="font-semibold text-slate-300">Acrylic Gearbox Bench Test Setup</span>
+              <p class="text-[10px] text-slate-500 mt-1">Image: images/acrylic-gearbox-fea.jpg</p>
+            </div>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">2/3 • Prototype Rig</span>
+          </div>
+
+          <!-- Slide 5: Video -->
+          <div class="snap-center shrink-0 w-full h-full flex items-center justify-center relative p-2">
+            <video controls class="max-w-full max-h-full rounded-lg">
+              <source src="videos/gearbox_spin.mp4" type="video/mp4">
+              Your browser does not support video playback.
+            </video>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">3/3 • High-RPM Spin Test</span>
+          </div>
+
+        </div>
+
+        <!-- Navigation Buttons -->
+        <button onclick="scrollGallery('gallery-modal6', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-cyan-500 text-white hover:text-slate-950 p-2.5 rounded-full shadow-lg transition-all border border-slate-700/50">
+          <i class="fa-solid fa-chevron-left text-xs"></i>
+        </button>
+        <button onclick="scrollGallery('gallery-modal6', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-cyan-500 text-white hover:text-slate-950 p-2.5 rounded-full shadow-lg transition-all border border-slate-700/50">
+          <i class="fa-solid fa-chevron-right text-xs"></i>
+        </button>
+      </div>
+
+      <div class="space-y-6 text-xs text-slate-300 light:text-slate-600 leading-relaxed">
+        <!-- Overview -->
+        <div>
+          <h4 class="font-bold text-cyan-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-circle-info"></i> Overview
+          </h4>
+          <p>
+            University engineering project focused on designing a 2-stage acrylic speed reducer. The gearbox steps down high-RPM power from a 250W motor to drive a bicycle wheel while complying with UK legal e-bike top speed limits (15 mph).
+          </p>
+        </div>
+
+        <!-- Technical Objectives -->
+        <div>
+          <h4 class="font-bold text-cyan-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-bullseye"></i> Technical Objectives
+          </h4>
+          <ul class="list-disc list-inside space-y-1 pl-1">
+            <li>Maximize energy efficiency and travel distance within strict material constraints (2 sheets of acrylic).</li>
+            <li>Ensure gear teeth and spline drive attachments survive maximum motor startup torque.</li>
+            <li>Maintain minimum Safety Factor of 2.0 under continuous operating loads.</li>
+          </ul>
+        </div>
+
+        <!-- Key Metrics -->
+        <div>
+          <h4 class="font-bold text-cyan-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-chart-line"></i> Key Metrics & Impact
+          </h4>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 my-2">
+            <div class="p-3 rounded-lg bg-slate-900/60 light:bg-slate-100 border border-slate-700/60 light:border-slate-200">
+              <span class="block text-slate-400 text-[10px]">FEA Load Case</span>
+              <span class="text-sm font-bold text-white light:text-slate-900">4x 59N Bearing Load</span>
+            </div>
+            <div class="p-3 rounded-lg bg-slate-900/60 light:bg-slate-100 border border-slate-700/60 light:border-slate-200">
+              <span class="block text-slate-400 text-[10px]">Speed Limit</span>
+              <span class="text-sm font-bold text-white light:text-slate-900">15 mph Compliant</span>
+            </div>
+            <div class="p-3 rounded-lg bg-slate-900/60 light:bg-slate-100 border border-slate-700/60 light:border-slate-200 col-span-2 sm:col-span-1">
+              <span class="block text-slate-400 text-[10px]">Prototype Result</span>
+              <span class="text-sm font-bold text-white light:text-slate-900">Passed 1st Try</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Methodology -->
+        <div>
+          <h4 class="font-bold text-cyan-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-gears"></i> Methodology
+          </h4>
+          <p class="mb-2">
+            Determined exact acrylic material properties using a Shimadzu material testing machine. Applied gear kinematics and beam stress equations to size straight-cut spur gears.
+          </p>
+          <p>
+            Validated spline attachments and gear tooth bending stress in Fusion 360 FEA (4x 59N bearing loads constrained at fin edges). Manufactured and bench-tested the assembly, hitting all distance and torque performance metrics without material yield.
+          </p>
+        </div>
+
+        <!-- Tools & Framework -->
+        <div>
+          <h4 class="font-bold text-cyan-400 text-sm mb-1.5 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-wrench"></i> Tools & Framework
+          </h4>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">Shimadzu Tensile Machine</span>
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">Fusion 360 FEA</span>
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">Acrylic Fabrication</span>
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">Gear Kinematics</span>
+          </div>
+        </div>
+
+        <!-- Learning Outcome -->
+        <div class="p-4 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">
+          <h4 class="font-bold text-cyan-400 text-sm mb-1 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-graduation-cap"></i> Learning Outcome
+          </h4>
+          <p class="text-slate-200 leading-relaxed">
+            Learned how empirical material testing data (via Shimadzu machines) directly improves the predictive accuracy of Fusion 360 FEA simulations when working with brittle engineering polymers.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const icon = document.getElementById('themeIcon');
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        html.classList.add('light');
+        icon.className = 'fa-solid fa-moon';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.classList.remove('light');
+        html.classList.add('dark');
+        icon.className = 'fa-solid fa-sun';
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+
+    /* ---------- Modal open / close ---------- */
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      // Always start each project at its first slide
+      const gallery = modal.querySelector('[id^="gallery-"]');
+      if (gallery) goToSlide(gallery.id, 0, true);
+    }
+
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+      // Pause videos inside modal when closed
+      modal.querySelectorAll('video').forEach(video => video.pause());
+    }
+
+    /* ---------- Gallery carousel (images + videos) ---------- */
+    const galleryState = {};   // galleryId -> current slide index
+
+    function getSlides(gallery) {
+      return Array.from(gallery.children);
+    }
+
+    function goToSlide(galleryId, index, instant = false) {
+      const gallery = document.getElementById(galleryId);
+      if (!gallery) return;
+      const slides = getSlides(gallery);
+      const target = (index + slides.length) % slides.length;   // wrap around
+      gallery.scrollTo({ left: target * gallery.clientWidth, behavior: instant ? 'instant' : 'smooth' });
+      if (instant) setActiveSlide(galleryId, target);
+    }
+
+    function scrollGallery(galleryId, direction) {
+      goToSlide(galleryId, (galleryState[galleryId] || 0) + direction);
+    }
+
+    function setActiveSlide(galleryId, index) {
+      const gallery = document.getElementById(galleryId);
+      if (!gallery) return;
+      galleryState[galleryId] = index;
+      getSlides(gallery).forEach((slide, i) => {
+        // Pause any video that is no longer in view
+        if (i !== index) slide.querySelectorAll('video').forEach(v => v.pause());
+      });
+      const dots = document.getElementById('dots-' + galleryId);
+      if (dots) Array.from(dots.children).forEach((d, i) => d.classList.toggle('active', i === index));
+    }
+
+    /* ---------- Video load diagnostics ---------- */
+    function watchVideo(video) {
+      const source = video.querySelector('source');
+      const path = source ? source.getAttribute('src') : video.getAttribute('src');
+      if (!path) return;
+      const fail = async () => {
+        if (video.dataset.failed) return;
+        video.dataset.failed = '1';
+        let reason = 'The browser could not play this file.';
+        try {
+          const res = await fetch(path, { method: 'HEAD' });
+          const size = parseInt(res.headers.get('content-length') || '0', 10);
+          if (res.status === 404) {
+            reason = 'File not found. Check the filename, its upper/lower-case (GitHub is case-sensitive) and that it is inside the "videos" folder.';
+          } else if (res.ok && size > 0 && size < 1000) {
+            reason = 'File is only ' + size + ' bytes, which looks like a Git LFS pointer rather than the real video.';
+          } else if (res.ok) {
+            reason = 'File was found but cannot be decoded. Re-encode it as H.264 video + AAC audio in an .mp4 container (phone/screen-recorder files are often HEVC or .mov renamed to .mp4).';
+          } else {
+            reason = 'Server returned HTTP ' + res.status + ' for this file.';
+          }
+        } catch (e) {
+          reason = 'Could not reach the file. If you opened this page straight from your computer, try it on GitHub Pages or a local server.';
+        }
+        console.error('[Portfolio video] ' + path + ' -> ' + reason);
+        const msg = document.createElement('div');
+        msg.className = 'py-6 px-4 text-slate-400 text-xs text-center max-w-md';
+        msg.innerHTML = '<i class="fa-solid fa-film text-2xl mb-2 text-sky-400 block"></i>' +
+          '<span class="font-semibold text-slate-300">Video unavailable</span>' +
+          '<p class="text-[10px] text-slate-500 mt-1 font-mono break-all"></p>' +
+          '<p class="text-[10px] text-slate-500 mt-1"></p>';
+        msg.children[2].textContent = path;
+        msg.children[3].textContent = reason;
+        video.replaceWith(msg);
+      };
+      if (source) source.addEventListener('error', fail);
+      video.addEventListener('error', fail);
+    }
+
+    function initGalleries() {
+      document.querySelectorAll('[id^="gallery-"]').forEach(gallery => {
+        const id = gallery.id;
+        const slides = getSlides(gallery);
+        const wrapper = gallery.parentElement;
+        galleryState[id] = 0;
+
+        // Auto-number the slide badges (so you can add/remove slides without editing counters)
+        slides.forEach((slide, i) => {
+          const badge = slide.querySelector('span.absolute');
+          if (badge) {
+            const text = badge.textContent.trim();
+            const caption = text.includes('•') ? text.split('•').slice(1).join('•').trim()
+                                                : (slide.querySelector('video') ? 'Video' : 'Image');
+            badge.textContent = `${i + 1}/${slides.length} • ${caption}`;
+          }
+          slide.querySelectorAll('video').forEach(v => {
+            v.preload = 'metadata';
+            v.setAttribute('playsinline', '');
+            watchVideo(v);
+          });
+        });
+
+        if (slides.length < 2) {
+          wrapper.querySelectorAll('button').forEach(b => b.classList.add('hidden'));
+          return;
+        }
+
+        // Dot indicators
+        const dots = document.createElement('div');
+        dots.id = 'dots-' + id;
+        dots.className = 'flex justify-center items-center gap-2 mb-6';
+        slides.forEach((_, i) => {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+          dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+          dot.onclick = () => goToSlide(id, i);
+          dots.appendChild(dot);
+        });
+        wrapper.classList.replace('mb-6', 'mb-3');
+        wrapper.after(dots);
+
+        // Track the current slide as the user swipes / scrolls / clicks arrows
+        let timer;
+        gallery.addEventListener('scroll', () => {
+          clearTimeout(timer);
+          timer = setTimeout(() => {
+            const idx = Math.round(gallery.scrollLeft / gallery.clientWidth);
+            if (idx !== galleryState[id]) setActiveSlide(id, idx);
+          }, 80);
+        });
+      });
+
+      // Keep slides aligned if the window is resized
+      window.addEventListener('resize', () => {
+        Object.keys(galleryState).forEach(id => {
+          const g = document.getElementById(id);
+          if (g && g.clientWidth) g.scrollTo({ left: galleryState[id] * g.clientWidth, behavior: 'instant' });
+        });
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', initGalleries);
+
+    function filterProjects(category) {
+      const cards = document.querySelectorAll('.project-card');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-sky-500', 'text-slate-950');
+        btn.classList.add('bg-slate-800', 'light:bg-slate-200', 'text-slate-300', 'light:text-slate-700');
+      });
+
+      event.target.classList.remove('bg-slate-800', 'light:bg-slate-200', 'text-slate-300', 'light:text-slate-700');
+      event.target.classList.add('bg-sky-500', 'text-slate-950');
+
+      cards.forEach(card => {
+        if (category === 'all' || card.classList.contains(category)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('[id^="modal"]').forEach(modal => {
+          modal.classList.add('hidden');
+          modal.querySelectorAll('video').forEach(video => video.pause());
+        });
+        document.body.style.overflow = 'auto';
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+        if (e.target.tagName === 'VIDEO') return;   // let video controls use arrows to seek
+        const open = document.querySelector('[id^="modal"]:not(.hidden)');
+        const gallery = open && open.querySelector('[id^="gallery-"]');
+        if (gallery) scrollGallery(gallery.id, e.key === 'ArrowRight' ? 1 : -1);
+      }
+    });
+  </script>
+</body>
+</html>
