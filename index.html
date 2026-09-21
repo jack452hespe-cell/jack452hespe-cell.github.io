@@ -179,21 +179,26 @@
         <div class="project-card motorsport composites p-6 rounded-2xl bg-slate-800/60 light:bg-white border border-slate-700/60 light:border-slate-200 flex flex-col justify-between hover:border-sky-500/50 transition-all shadow-sm">
           <div>
             <!-- Project Title Image Preview -->
-            <div class="mb-4 rounded-xl overflow-hidden border border-slate-700/60 light:border-slate-200 bg-slate-900/60 h-36 flex items-center justify-center text-center">
-              <img src="images/wb_fea_setup.png" alt="Rear Suspension FEA" class="w-full h-full object-cover hidden" onerror="this.classList.add('hidden')">
+            <div class="mb-4 rounded-xl overflow-hidden border border-slate-700/60 light:border-slate-200 bg-slate-900/60 h-36 flex items-center justify-center text-center relative">
+              <img src="images/wb_fea_setup.png"
+                 alt="Rear Suspension FEA" 
+                 class="w-full h-full object-cover" 
+                 onload="this.nextElementSibling.classList.add('hidden')" 
+                 onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
+  
               <div class="text-slate-400 text-xs px-4">
-                <i class="fa-solid fa-image text-xl mb-1 text-emerald-400 block"></i>
-                <span class="text-[11px] text-slate-400">Rear Suspension FEA Preview</span>
+                <i class="fa-solid fa-image text-xl mb-1 text-sky-400 block"></i>
+                <span class="text-[11px] text-slate-400">Carbon Steering Column Preview</span>
               </div>
             </div>
-
+            
             <div class="flex justify-between items-start mb-3">
               <span class="px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 text-xs font-mono font-bold">Safety Factor 2.6</span>
               <i class="fa-solid fa-car text-slate-400"></i>
             </div>
             <h3 class="text-xl font-bold text-white light:text-slate-900 mb-2">Formula Student EV Rear Suspension</h3>
             <p class="text-xs text-slate-300 light:text-slate-600 mb-4 line-clamp-3">
-              Redesigned rear suspension to handle increased loads from electrification using T45 steel tubing and E45 welded inserts, validated in Siemens Nastran.
+              Redesigned suspension to handle increased loads from electrification using T45 steel tubing and E45 welded inserts, validated in Siemens Nastran.
             </p>
             <div class="flex flex-wrap gap-1.5 mb-6">
               <span class="px-2 py-0.5 rounded bg-slate-700/60 light:bg-slate-100 text-[11px] text-slate-300 light:text-slate-700">T45/E45 Steel</span>
@@ -210,21 +215,26 @@
         <div class="project-card motorsport tooling p-6 rounded-2xl bg-slate-800/60 light:bg-white border border-slate-700/60 light:border-slate-200 flex flex-col justify-between hover:border-sky-500/50 transition-all shadow-sm">
           <div>
             <!-- Project Title Image Preview -->
-            <div class="mb-4 rounded-xl overflow-hidden border border-slate-700/60 light:border-slate-200 bg-slate-900/60 h-36 flex items-center justify-center text-center">
-              <img src="images/me_at_metlase.jpg" alt="Wishbone Welding Jig" class="w-full h-full object-cover hidden" onerror="this.classList.add('hidden')">
+            <div class="mb-4 rounded-xl overflow-hidden border border-slate-700/60 light:border-slate-200 bg-slate-900/60 h-36 flex items-center justify-center text-center relative">
+              <img src="images/crusty_cad.png"
+                 alt="Rear Suspension FEA" 
+                 class="w-full h-full object-cover" 
+                 onload="this.nextElementSibling.classList.add('hidden')" 
+                 onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
+  
               <div class="text-slate-400 text-xs px-4">
-                <i class="fa-solid fa-image text-xl mb-1 text-amber-400 block"></i>
-                <span class="text-[11px] text-slate-400">Wishbone Jig Preview</span>
+                <i class="fa-solid fa-image text-xl mb-1 text-sky-400 block"></i>
+                <span class="text-[11px] text-slate-400">Carbon Steering Column Preview</span>
               </div>
             </div>
-
+            
             <div class="flex justify-between items-start mb-3">
               <span class="px-2.5 py-1 rounded bg-amber-500/10 text-amber-400 text-xs font-mono font-bold">20µm Laser Precision</span>
               <i class="fa-solid fa-draw-polygon text-slate-400"></i>
             </div>
             <h3 class="text-xl font-bold text-white light:text-slate-900 mb-2">Laser-Cut Steel Wishbone Jig</h3>
             <p class="text-xs text-slate-300 light:text-slate-600 mb-4 line-clamp-3">
-              Partnered with Metlase to design slot-rivet interlocking steel welding jigs in Siemens NX, replacing legacy MDF fixtures.
+              Partnered with Metlase to design slot-rivet interlocking steel welding jigs in Siemens NX, replacing previous MDF fixtures.
             </p>
             <div class="flex flex-wrap gap-1.5 mb-6">
               <span class="px-2 py-0.5 rounded bg-slate-700/60 light:bg-slate-100 text-[11px] text-slate-300 light:text-slate-700">Siemens NX</span>
@@ -241,14 +251,19 @@
         <div class="project-card software p-6 rounded-2xl bg-slate-800/60 light:bg-white border border-slate-700/60 light:border-slate-200 flex flex-col justify-between hover:border-sky-500/50 transition-all shadow-sm">
           <div>
             <!-- Project Title Image Preview -->
-            <div class="mb-4 rounded-xl overflow-hidden border border-slate-700/60 light:border-slate-200 bg-slate-900/60 h-36 flex items-center justify-center text-center">
-              <img src="images/python-hmi.jpg" alt="Python Modbus HMI" class="w-full h-full object-cover hidden" onerror="this.classList.add('hidden')">
+            <div class="mb-4 rounded-xl overflow-hidden border border-slate-700/60 light:border-slate-200 bg-slate-900/60 h-36 flex items-center justify-center text-center relative">
+              <img src="images/live_reading.png"
+                 alt="Rear Suspension FEA" 
+                 class="w-full h-full object-cover" 
+                 onload="this.nextElementSibling.classList.add('hidden')" 
+                 onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
+  
               <div class="text-slate-400 text-xs px-4">
-                <i class="fa-solid fa-image text-xl mb-1 text-purple-400 block"></i>
-                <span class="text-[11px] text-slate-400">Python HMI Preview</span>
+                <i class="fa-solid fa-image text-xl mb-1 text-sky-400 block"></i>
+                <span class="text-[11px] text-slate-400">Carbon Steering Column Preview</span>
               </div>
             </div>
-
+            
             <div class="flex justify-between items-start mb-3">
               <span class="px-2.5 py-1 rounded bg-purple-500/10 text-purple-400 text-xs font-mono font-bold">Modbus RTU & TCP</span>
               <i class="fa-solid fa-desktop text-slate-400"></i>
@@ -272,21 +287,26 @@
         <div class="project-card tooling p-6 rounded-2xl bg-slate-800/60 light:bg-white border border-slate-700/60 light:border-slate-200 flex flex-col justify-between hover:border-sky-500/50 transition-all shadow-sm">
           <div>
             <!-- Project Title Image Preview -->
-            <div class="mb-4 rounded-xl overflow-hidden border border-slate-700/60 light:border-slate-200 bg-slate-900/60 h-36 flex items-center justify-center text-center">
-              <img src="images/mixer-restoration.jpg" alt="Planetary Mixer Restoration" class="w-full h-full object-cover hidden" onerror="this.classList.add('hidden')">
+            <div class="mb-4 rounded-xl overflow-hidden border border-slate-700/60 light:border-slate-200 bg-slate-900/60 h-36 flex items-center justify-center text-center relative">
+              <img src="images/mixer_disassembled.jpg"
+                 alt="Rear Suspension FEA" 
+                 class="w-full h-full object-cover" 
+                 onload="this.nextElementSibling.classList.add('hidden')" 
+                 onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
+  
               <div class="text-slate-400 text-xs px-4">
-                <i class="fa-solid fa-image text-xl mb-1 text-rose-400 block"></i>
-                <span class="text-[11px] text-slate-400">Mixer Restoration Preview</span>
+                <i class="fa-solid fa-image text-xl mb-1 text-sky-400 block"></i>
+                <span class="text-[11px] text-slate-400">Carbon Steering Column Preview</span>
               </div>
             </div>
-
+            
             <div class="flex justify-between items-start mb-3">
               <span class="px-2.5 py-1 rounded bg-rose-500/10 text-rose-400 text-xs font-mono font-bold">10x Value Restoration</span>
               <i class="fa-solid fa-gears text-slate-400"></i>
             </div>
             <h3 class="text-xl font-bold text-white light:text-slate-900 mb-2">1970's Planetary Mixer Restoration</h3>
             <p class="text-xs text-slate-300 light:text-slate-600 mb-4 line-clamp-3">
-              Complete electromechanical teardown and restoration of a vintage planetary mixer, diagnosing internal failure and replacing oil seals.
+              Complete mechanical teardown and restoration of a vintage planetary mixer, diagnosing internal failure and rebuilding.
             </p>
             <div class="flex flex-wrap gap-1.5 mb-6">
               <span class="px-2 py-0.5 rounded bg-slate-700/60 light:bg-slate-100 text-[11px] text-slate-300 light:text-slate-700">Mechanical Diagnosis</span>
@@ -303,14 +323,19 @@
         <div class="project-card composites tooling p-6 rounded-2xl bg-slate-800/60 light:bg-white border border-slate-700/60 light:border-slate-200 flex flex-col justify-between hover:border-sky-500/50 transition-all shadow-sm">
           <div>
             <!-- Project Title Image Preview -->
-            <div class="mb-4 rounded-xl overflow-hidden border border-slate-700/60 light:border-slate-200 bg-slate-900/60 h-36 flex items-center justify-center text-center">
-              <img src="images/acrylic-gearbox-fea.jpg" alt="Gearbox FEA Analysis" class="w-full h-full object-cover hidden" onerror="this.classList.add('hidden')">
+            <div class="mb-4 rounded-xl overflow-hidden border border-slate-700/60 light:border-slate-200 bg-slate-900/60 h-36 flex items-center justify-center text-center relative">
+              <img src="images/spline_fea.png"
+                 alt="Rear Suspension FEA" 
+                 class="w-full h-full object-cover" 
+                 onload="this.nextElementSibling.classList.add('hidden')" 
+                 onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden')">
+  
               <div class="text-slate-400 text-xs px-4">
-                <i class="fa-solid fa-image text-xl mb-1 text-cyan-400 block"></i>
-                <span class="text-[11px] text-slate-400">Gearbox FEA Preview</span>
+                <i class="fa-solid fa-image text-xl mb-1 text-sky-400 block"></i>
+                <span class="text-[11px] text-slate-400">Carbon Steering Column Preview</span>
               </div>
             </div>
-
+            
             <div class="flex justify-between items-start mb-3">
               <span class="px-2.5 py-1 rounded bg-cyan-500/10 text-cyan-400 text-xs font-mono font-bold">250W e-Bike FEA</span>
               <i class="fa-solid fa-dharmachakra text-slate-400"></i>
