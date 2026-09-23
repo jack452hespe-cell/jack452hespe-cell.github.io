@@ -663,7 +663,7 @@
             </div>
             <div class="p-3 rounded-lg bg-slate-900/60 light:bg-slate-100 border border-slate-700/60 light:border-slate-200 col-span-2 sm:col-span-1">
               <span class="block text-slate-400 text-[10px]">Kinematics</span>
-              <span class="text-sm font-bold text-white light:text-slate-900">Minimal Deflection Under Peak Load</span>
+              <span class="text-sm font-bold text-white light:text-slate-900">0.11mm Deflection Under Peak Load</span>
             </div>
           </div>
         </div>
@@ -674,10 +674,13 @@
             <i class="fa-solid fa-gears"></i> Methodology
           </h4>
           <p class="mb-2">
-            Evaluated suspension load cases to map primary force paths. Selected T45 seamless steel tubing combined with E45 welded steel inserts to ensure reliable joint fatigue performance.
+            Evaluated suspension load cases to map primary force paths and performed hand calculations using Euler-Johnsons method to identify critical buckling stress and inform material selection from sponsor's available stock.
           </p>
           <p>
-            Optimized tube outer diameters and wall thicknesses in Siemens Nastran FEA. Set up simulations for each loadcase scenario and validated weld geometries and stress concentrations under combined braking, cornering, and acceleration conditions.
+            Selected T45 seamless steel tubing with a UTS of 650MPa combined with E45 welded steel inserts to ensure reliable joint fatigue performance. Further validated tube outer diameters and wall thicknesses in Siemens NX Nastran FEA using simulations for each loadcase scenario and validated weld geometries and stress concentrations under combined braking, cornering, and cone-strike conditions.
+          </p>
+          <p>
+            Constrained the rod end centres using fixed translation constraints and the push rod tab hole centres using pinned constraints. Applied a bearing load to bearing housing using max wishbone forces. Initial mesh size of 1.5mm but increased resolution around edge blends of push rod tabs and bearing housing corners to ensure accurate convergence. Max stress was identified as 252MPa giving a FoS of 2.6 against our target of 2.5.
           </p>
         </div>
 
