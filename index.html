@@ -965,10 +965,13 @@
             <i class="fa-solid fa-gears"></i> Methodology
           </h4>
           <p class="mb-2">
-            Built the application in Python (Spyder IDE) using asynchronous execution loops to separate Modbus communication polling from user interface rendering.
+            Built the asynchronous industrial Data Acquisition and telemetry GUI application in Python using asynchronous execution loops to separate Modbus communication polling from user interface rendering. Interfaces with multi-channel Modbus hardware (both serial RTU and Ethernet TCP), logs multi-sensor test bench data to disk in real time, and renders live, interactive matplotlib telemetry graphs inside a Tkinter interface 
           </p>
           <p>
-            Integrated dynamic graphing libraries to allow real-time monitoring of thermal and pressure trends. Software is now used internally and aided presenting trial findings directly to company executive directors in Italy, proving software utility for future experimental rigs.
+            Integrated asyncio event loops with Tkinter and Matplotlib, for non-blocking UI updates and telemetry graphing during active multi-card rig monitoring. Implemented dynamic Modbus register auto-discovery and YAML-based instrumentation identification to automatically detect, scale, and log sensor channels so that the software could be used across different rigs and instrumentation types.
+          </p>
+          <p>
+            Software is now used internally and aided presenting trial findings directly to company executive directors in Italy, proving software utility for future experimental rigs.
           </p>
         </div>
 
@@ -991,7 +994,7 @@
             <i class="fa-solid fa-graduation-cap"></i> Learning Outcome
           </h4>
           <p class="text-slate-200 leading-relaxed">
-            Enhanced proficiency in asynchronous data handling and industrial communication protocols, bridging the gap between mechanical testing hardware and software visualization interfaces. 
+            Enhanced proficiency in asynchronous data handling and industrial communication protocols using Python libraries and IDEs. Built heavily on my understanding of modular script architecture, global/local namespace control, return-type annotations, 
           </p>
         </div>
       </div>
