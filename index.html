@@ -1375,7 +1375,7 @@
       <button onclick="closeModal('modal7')" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg z-20">
         <i class="fa-solid fa-xmark"></i>
       </button>
-      <span class="px-2.5 py-1 rounded bg-sky-500/10 text-sky-400 text-xs font-mono font-bold">Fatigue Constrained Design</span>
+      <span class="px-2.5 py-1 rounded bg-sky-500/10 text-sky-400 text-xs font-mono font-bold">Structural Optimisation</span>
       <h3 class="text-2xl font-bold text-white light:text-slate-900 mt-2 mb-4">Aluminium Upright Optimisation</h3>
 
       <!-- Multi-Media Carousel Container -->
@@ -1390,7 +1390,7 @@
               <span class="font-semibold text-slate-300">Mould CAD Preview</span>
               <p class="text-[10px] text-slate-500 mt-1">Image: images/column_mould_top.png</p>
             </div>
-            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">1/3 • Failed 3D Print</span>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">1/3 • Failed 3D Print Model</span>
           </div>
 
           <!-- Slide 2: Image -->
@@ -1401,7 +1401,7 @@
               <span class="font-semibold text-slate-300">Composite Debulking Process</span>
               <p class="text-[10px] text-slate-500 mt-1">Image: images/column_debulk.jpg</p>
             </div>
-            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">2/3 • Constraint Location</span>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">2/3 • Constraint Location at Bearing Interface</span>
           </div>
 
           <!-- Slide 3: Image -->
@@ -1412,7 +1412,7 @@
               <span class="font-semibold text-slate-300">Mould CAD Preview</span>
               <p class="text-[10px] text-slate-500 mt-1">Image: images/column_mould_top.png</p>
             </div>
-            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">1/3 • Fake Stress Concentration</span>
+            <span class="absolute bottom-3 left-3 bg-slate-900/80 text-[10px] text-slate-300 px-2 py-0.5 rounded font-mono">1/3 • FEA Artefacts</span>
           </div>
           
           <!-- Slide 4: Image -->
@@ -1443,7 +1443,7 @@
             <i class="fa-solid fa-circle-info"></i> Overview
           </h4>
           <p>
-            xxxxx
+            The initial design was topologically optimized and to be 3D printed from titanium, but failed multiple prints due to cracks forming during cooling as a potential result of printing too high off the print bed. Designing an inexpensive last-minute replacement with a quick turn-around was required.
           </p>
         </div>
 
@@ -1453,9 +1453,9 @@
             <i class="fa-solid fa-bullseye"></i> Technical Objectives
           </h4>
           <ul class="list-disc list-inside space-y-1 pl-1">
-            <li>xxxxx</li>
-            <li>xxxxx</li>
-            <li>xxxxx</li>
+            <li>Satisfy the required factor of safety against yielding and fatigue failure</li>
+            <li>Minimise mass without compromising structural performance</li>
+            <li>Produce CNC-machinable geometry within tooling and cost constraints</li>
           </ul>
         </div>
 
@@ -1466,12 +1466,12 @@
           </h4>
           <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 my-2">
             <div class="p-3 rounded-lg bg-slate-900/60 light:bg-slate-100 border border-slate-700/60 light:border-slate-200">
-              <span class="block text-slate-400 text-[10px]">safety factor</span>
-              <span class="text-sm font-bold text-white light:text-slate-900">one million</span>
+              <span class="block text-slate-400 text-[10px]">Fatigue-Constrained</span>
+              <span class="text-sm font-bold text-white light:text-slate-900">FoS: 2 (70% σᵧ Limit)</span>
             </div>
             <div class="p-3 rounded-lg bg-slate-900/60 light:bg-slate-100 border border-slate-700/60 light:border-slate-200">
-              <span class="block text-slate-400 text-[10px]">Manufacture time?</span>
-              <span class="text-sm font-bold text-white light:text-slate-900">xxxxxx</span>
+              <span class="block text-slate-400 text-[10px]">FEA Validated</span>
+              <span class="text-sm font-bold text-white light:text-slate-900">NX Nastran</span>
             </div>
             <div class="p-3 rounded-lg bg-slate-900/60 light:bg-slate-100 border border-slate-700/60 light:border-slate-200 col-span-2 sm:col-span-1">
               <span class="block text-slate-400 text-[10px]">Competition Testing</span>
@@ -1486,13 +1486,13 @@
             <i class="fa-solid fa-gears"></i> Methodology
           </h4>
           <p class="mb-2">
-            The initial design was topologically optimized and to be 3D printed from titanium, but failed multiple prints due to cracks forming during cooling as a potential result of printing too high off the print bed. Designing an inexpensive last-minute replacement with a quick turn-around was required. T6 aluminium was selected as a cost-effective material due to its good machinability, availability, and high strength-to-weight ratio, enabling the component to be manufactured quickly.
+            I identified the critical hardpoints and load paths, concentrating material around highly loaded regions while accounting for manufacturing constraints such as the minimum internal radii achievable with CNC tooling. Building on a legacy design, I developed and iterated the model using FEA to assess yielding and fatigue performance.
             </p>
-	    <p>
-	      I identified the critical hardpoints and load paths, concentrating material around highly loaded regions while accounting for manufacturing constraints such as the minimum internal radii achievable with CNC tooling. Building on a legacy design, I developed and iterated the model using FEA to assess yielding and fatigue performance.
-	    </p>
-	    <p>
-	      The final design achieved a factor of safety above the required limit for yielding while maintaining a maximum stress below the fatigue design limit adopted by the team, approximately 70% of the material yield strength of 250MPa. This was the main challenge due to the poor fatigue behaviour of T6 Aluminium.
+	      <p>
+	        T6 aluminium was selected as a cost-effective material due to its good machinability, availability, and high strength-to-weight ratio, enabling the component to be manufactured quickly. 
+	      </p>
+	      <p>
+	        The final design achieved a factor of safety above the required limit for yielding while maintaining a maximum stress below the fatigue design limit adopted by the team, approximately 70% of the material yield strength of 250MPa. This was the main challenge due to the poor fatigue behaviour of T6 Aluminium.
           </p>
         </div>
 
@@ -1503,10 +1503,10 @@
           </h4>
           <div class="flex flex-wrap gap-2 mt-2">
             <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">Siemens NX CAD</span>
-            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">xxxxx</span>
-            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">xxxxxx</span>
-            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">xxxxxx</span>
-            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">xxxxxx</span>
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">NX Nastran</span>
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">Fatigue Calculation</span>
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">CNC Milling</span>
+            <span class="px-2.5 py-1 rounded bg-slate-700 light:bg-slate-200 text-slate-200 light:text-slate-800 text-[11px] font-mono">6065 T6 Aluminium</span>
           </div>
         </div>
 
